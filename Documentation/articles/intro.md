@@ -1,6 +1,6 @@
-# Altium 365 Generic PLM Connector Documentation
+# Altium PLM integration SDK Documentation
 
-The Generic Connector solution acts as a template for integrating your PLM solution with Altium 365.
+The Altium PLM integration SDK acts as a template for integrating your PLM solution with Altium 365.
 
 This solution provides a base implementation of gRPC endpoints. 
 It also provides a simple, file-based, implementation that acts as a PLM file server (**FilesystemPLMDriver** project) and  

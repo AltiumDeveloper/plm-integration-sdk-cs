@@ -1,8 +1,8 @@
 ﻿# Solution Description
 
 ## 1000-foot view
-The solution in this repository consists of two main parts. One, is the base implementation of the gRPC service needed by the *Altium 365 Generic PLM Connector* to start 
-the connection between Altium 365 and the Generic Connector. The second is an example implementation of a file-based PLM system that can act as a point of reference. 
+The solution in this repository consists of two main parts. One, is the base implementation of the gRPC service provided by the *Altium PLM integration SDK*, needed to start 
+the connection between Altium 365 and your custom PLM connector. The second is an example implementation of a file-based PLM system that can act as a point of reference. 
 It requires .NET 8.0 SDK to be installed on the system which can be downloaded from [Microsoft .NET download page](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) 
 
 When using the template project, the implementing party only has to implement two interfaces that will later be used for the communication process. 
@@ -10,12 +10,12 @@ These interfaces are as described below.
 
 | Interface                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ICustomPlmMetadataService | This interface is responsible for providing metadata information about your PLM system. <br/>It provides information about types and their attributes that are exposed by your implementation of the Generic Connector solution. Based on the information received from this interface, inside the Altium 365 configuration, you will be able to create mapping between the types known in the Altium ecosystem (capacitors, resistors etc.) and the types native to your PLM implementation. |
+| ICustomPlmMetadataService | This interface is responsible for providing metadata information about your PLM system. <br/>It provides information about types and their attributes that are exposed by your custom PLM connector. Based on the information received from this interface, inside the Altium 365 configuration, you will be able to create mapping between the types known in the Altium ecosystem (capacitors, resistors etc.) and the types native to your PLM implementation. |
 | ICustomPlmService         | This interface is the heart of communication between Altium 365 and your PLM service. It is responsible for storing and retrieving items from and to Altium 365.                                                                                                                                                                                                                                                                                                                              |
 
 This template solution provides some extension methods that will make it easy to register all the necessary middleware to run the gRPC service:
 
-![Startup.cs with registration of Custom PLM service](images/solution/solution_register_middleware.jpg "Middleware registration")
+![Startup.cs with registration of Custom PLM connector](images/solution/solution_register_middleware.jpg "Middleware registration")
 
 Those extension methods will register your implementations, the Global Exception filter, Automapper profiles, Logger configuration etc, creating a functioning service out of the box.  
 It creates a distinct separation between the gRPC-required datamodel and application logic. It also ensures that the *Auth* data received by the
@@ -37,7 +37,7 @@ Represents object relationships table in the PLM system. This table contains a l
 ![RelationshipTable diagram](./images/solution/RelationshipTableDiagram.jpg "Relationship Table Diagram")
 
 ### FileResource (FileResource.cs)
-Represents file uploaded to the custom connector side. It is used as a staging area mainly for attachments that later are 
+Represents file uploaded to the custom PLM connector. It is used as a staging area mainly for attachments that later are 
 defined by the RelationshipTable (during a CreateRelationships operation)
 
 ![FileResource diagram](./images/solution/FileResourceDiagram.jpg "File Resource Diagram")
