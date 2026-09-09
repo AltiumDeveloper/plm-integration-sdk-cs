@@ -1,3 +1,3 @@
-# API Documentation for Altium 365 Generic PLM Connector
+# API Documentation for Altium PLM integration SDK
 
-This is the API reference documentation for **Altium 365 Generic PLM Connector**.
+This is the API reference documentation for the **Altium PLM Integration SDK**.

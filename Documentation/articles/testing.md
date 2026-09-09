@@ -1,7 +1,7 @@
-﻿This document is a step-by-step guide outlining how to make a simple test using the custom connector service and Altium 365 environment.
-By following it, you will create a simple project, configure the connection to Generic Connector and configure publish process. 
+﻿This document is a step-by-step guide outlining how to make a simple test using the custom PLM connector and Altium 365 environment.
+By following it, you will create a simple project, configure the connection to the custom PLM connector and configure publish process. 
 You will also run basic operations, such as **Sync**, **Part Choice** or **Publish Project**, which also includes BOM Publication. The goal is that
-with help of content of this document, you will be able to test all the most common operations that are supported by Generic Connector.
+with help of content of this document, you will be able to test all the most common operations that are supported by the custom PLM connector.
 
 # Prerequisites
 1. Altium 365 Workspace
@@ -95,7 +95,7 @@ You can now press the **Release** button. The final view should be as shown belo
 ![Released Project](./images/testing/Released%20Project.png)
 
 
-## Configuring the Connector
+## Configuring the Connection
 In Altium Designer, right-click on the project in the *Projects* panel then select **Show in Web Browser**. This will redirect you to the Altium 365 web view.
 In the upper left corner, click the *back* icon to return to your workspace view then, select **Admin > PLM Configuration** as shown below.
 

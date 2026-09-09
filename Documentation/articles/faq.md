@@ -10,7 +10,7 @@ The implementing party should verify that the credentials used during the *Auth 
 The *IContext* is picked up from the request via the gRPC interceptor. This allows the implementing party to access the provided PLM credentials by Dependency Injection
 without the hassle of passing it through the entire invocation tree.
 
-### My sync operation failed, yet the Generic Connector reported no errors. How can I check what went wrong?
+### My sync operation failed, yet the custom PLM connector reported no errors. How can I check what went wrong?
 In Altium 365 Workplace web view you can navigate to the **Admin->PLM Integration** (Synchronization Status tab) or the **Admin->Processes** (Browser tab) view. 
 From there, after selecting the proper operation row, you can see more details about the failed operation by opening the *Data* tab.
 

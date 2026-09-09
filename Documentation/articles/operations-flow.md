@@ -1,13 +1,13 @@
 ﻿# Operational Flows
-To illustrate the relationship between **Altium 365 Generic PLM Connector** endpoints and the overall flow of the basic operations, 
-this section presents the simplified flow of operations available using the Generic Connector API. It excludes more complicated
+To illustrate the relationship between the **gRPC endpoints** and the overall flow of the basic operations, 
+this section presents the simplified flow of operations available using the gRPC API. It excludes more complicated
 scenarios, but unless your *IsOperationSupported()* method returns true for those queries, Altium 365 will not start those 
 operations and will be limited to the operations presented in the following section.
 
 ## Sync Operation
 ### To PLM
-Sync to PLM starts with verifying *Auth* data. If the Generic Connector accepts the *Auth* data, 
-the Sync process begins. First, it reads all the metadata types. Then, based on connector configuration, Altium 365 will query
+Sync to PLM starts with verifying *Auth* data. If the custom PLM connector accepts the *Auth* data, 
+the Sync process begins. First, it reads all the metadata types. Then, based on the sync configuration, Altium 365 will query
 its internal data store to select items that need to be synced. When the list of components that need to be synced to PLM is ready, 
 the process will start fetching the items from PLM (based on the configured key). If the item does not exist on PLM, it will be created.
 If it does exist, it will be updated. This is illustrated in the following diagram:
@@ -18,7 +18,7 @@ skinparam sequenceMessageAlign center
 skinparam ParticipantPadding 100
 
 Participant "Altium 365" as Altium
-Participant "Generic Connector" as Connector
+Participant "Custom PLM Connector" as Connector
 
     Altium -> Connector: TestAccess()
         activate Connector
@@ -49,8 +49,8 @@ Participant "Generic Connector" as Connector
 ```
 
 ### To Altium
-Sync to PLM starts with verifying *Auth* data. If the Generic Connector accepts the *Auth* data,
-the Sync process begins. First, it reads all the metadata types. Then, based on connector configuration, Altium 365 will query
+Sync to PLM starts with verifying *Auth* data. If the custom PLM connector accepts the *Auth* data,
+the Sync process begins. First, it reads all the metadata types. Then, based on the sync configuration, Altium 365 will query
 PLM for a list of item IDs that need to be synced. For each of these IDs, the process will fetch the items from PLM 
 (based on the configuration) and store them on the Altium side. This is illustrated in the following diagram:
 
@@ -60,7 +60,7 @@ skinparam sequenceMessageAlign center
 skinparam ParticipantPadding 100
 
 Participant "Altium 365" as Altium
-Participant "Generic Connector" as Connector
+Participant "Custom PLM Connector" as Connector
 
     Altium -> Connector: TestAccess()
         activate Connector
@@ -107,7 +107,7 @@ skinparam sequenceMessageAlign center
 skinparam ParticipantPadding 100
 
 Participant "Altium 365" as Altium
-Participant "Generic Connector" as Connector
+Participant "Custom PLM Connector" as Connector
 
     ==End of Sync Operation==
     |||
@@ -136,7 +136,7 @@ skinparam sequenceMessageAlign center
 skinparam ParticipantPadding 100
 
 Participant "Altium 365" as Altium
-Participant "Generic Connector" as Connector
+Participant "Custom PLM Connector" as Connector
 
     Altium -> Connector: TestAccess()
         activate Connector
@@ -170,9 +170,9 @@ Participant "Generic Connector" as Connector
 ```
 
 ## Publish Project
-Project Publishing starts with verifying *Auth* data. If the Generic Connector accepts the *Auth* data,
+Project Publishing starts with verifying *Auth* data. If the custom PLM connector accepts the *Auth* data,
 the Sync process begins. First, it reads all the metadata types. Then, Altium 365 lists all components that exist in the project
-and tries to read them from the Generic Connector side. It is worth mentioning that the project itself is also threaded as an item. 
+and tries to read them from the custom PLM connector side. It is worth mentioning that the project itself is also threaded as an item. 
 Based on the result, it will either create or update items. When the sync finishes, Altium 365 will start uploading the relationship
 information. To do so, when needed, it will upload a file as an attachment and later run the *CreateRelationships* command that will
 refer to the uploaded file. An example of such files is *.pcba assembly file. The number and type of the files depends on the publish
@@ -185,7 +185,7 @@ skinparam sequenceMessageAlign center
 skinparam ParticipantPadding 100
 
 Participant "Altium 365" as Altium
-Participant "Generic Connector" as Connector
+Participant "Custom PLM Connector" as Connector
 
     Altium -> Connector: TestAccess()
         activate Connector
