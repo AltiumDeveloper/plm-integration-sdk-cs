@@ -1,6 +1,6 @@
-# Altium PLM integration SDK
+# Altium PLM Integration SDK
 
-The Altium PLM integration SDK is a C# framework for building a **custom PLM connector** — a
+The Altium PLM Integration SDK is a C# framework for building a **custom PLM connector** — a
 service that integrates a third-party PLM system with an [Altium 365](https://www.altium.com/altium-365)
 Workspace. The connector acts as an adapter between Altium 365 and your PLM: Altium 365 communicates
 with it over gRPC, and it translates Altium's models and operations into calls your PLM understands.
@@ -24,7 +24,7 @@ Use it to add PLM integration for systems that Altium 365 does not support out o
 
 - [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - An Altium 365 Workspace with an Enterprise license, plus a license for the **Generic Connector**
-  PLM driver (required to configure a PLM Integration).
+  PLM driver (required to configure a PLM integration).
 - Altium Designer — to exercise the sync and publish workflows.
 
 ## Getting started
