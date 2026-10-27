@@ -6,7 +6,7 @@ with help of content of this document, you will be able to test all the most com
 # Prerequisites
 1. Altium 365 Workspace
 2. Altium Designer installed on the system
-3. Enterprise license for Altium 365 and licence for Generic Connector
+3. Enterprise license for Altium 365 and license for Generic Connector
 4. User with administrator role
 
 ## Creation of a Dummy Project
