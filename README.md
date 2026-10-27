@@ -6,7 +6,7 @@ Workspace. The connector acts as an adapter between Altium 365 and your PLM: Alt
 with it over gRPC, and it translates Altium's models and operations into calls your PLM understands.
 Use it to add PLM integration for systems that Altium 365 does not support out of the box.
 
-![Altium 365 connecting to a PLM through a custom connector](Documentation/images/ConnectorAsAdapter.png)
+![Altium 365 connecting to a PLM through a custom connector](Documentation/images/ConnectorAsAdapter.svg)
 
 **Full documentation:** https://altiumdeveloper.github.io/plm-integration-sdk-cs/
 

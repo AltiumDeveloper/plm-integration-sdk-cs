@@ -5,7 +5,7 @@ by Altium 365 to communicate with arbitrary PLM instances. It can be used to pro
 
 The resulting custom PLM connector works as a man-in-the-middle between Altium 365 and your PLM system, taking the role of an adapter. It is responsible
 for translation of models and operations types used by Altium 365 into the format acceptable by your PLM system.
-![Altium365 Connection](./images/ConnectorAsAdapter.png)
+![Altium 365 connecting to a PLM through a custom connector](./images/ConnectorAsAdapter.svg)
 
 The SDK is distributed as a [C#](https://github.com/AltiumDeveloper/plm-integration-sdk-cs) service application with associated documentation and example configuration files.
 The SDK comes with a working example of integration using a simple file system storage 
